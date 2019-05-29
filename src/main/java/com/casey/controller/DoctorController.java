@@ -2,7 +2,10 @@ package com.casey.controller;
 
 import org.springframework.stereotype.Controller;
 
-@Controller
+
+
+@RestController
+@RequestMapping("/doctor")
 public class DoctorController {
 
 }
