@@ -8,284 +8,175 @@ package com.casey.bean;
 import java.sql.Date;
 
 /**
+ * 
+ * @author Akhil
  *
- * @author d06521
  */
 public class IPRegister {
-    public String patientname,gender,address,contact,emergencycontact,relation,emergencynumber,details,refdoctor,refhospital,refhosop;
-    public Date regdate,dob,currentdate;
-    public int age,patientid;
-    public String Department,Doctor,ipstatus;
-    public int roomid,treatmentid,ipid;
-    
-
-    public Date getCurrentdate() {
-        return currentdate;
-    }
-
-    public String getIpstatus() {
-        return ipstatus;
-    }
-
-    public void setIpstatus(String ipstatus) {
-        this.ipstatus = ipstatus;
-    }
-
-    public void setCurrentdate(Date currentdate) {
-        this.currentdate = currentdate;
-    }
-
-    public float getTreatmentamount() {
-        return treatmentamount;
-    }
-
-    public void setTreatmentamount(float treatmentamount) {
-        this.treatmentamount = treatmentamount;
-    }
-
-    public float getRoomrent() {
-        return roomrent;
-    }
-
-    public void setRoomrent(float roomrent) {
-        this.roomrent = roomrent;
-    }
-    float treatmentamount,roomrent;
-
-    public int getIpid() {
-        return ipid;
-    }
-
-    public void setIpid(int ipid) {
-        this.ipid = ipid;
-    }
-
-    public float getAddpayment() {
-        return addpayment;
-    }
-
-    public void setAddpayment(float addpayment) {
-        this.addpayment = addpayment;
-    }
-    public String roomtype,treatmenttype;
-
-    public float getOther() {
-        return other;
-    }
-
-    public void setOther(float other) {
-        this.other = other;
-    }
-    public float Advance,balance,total,other,addpayment;
-
-    public int getRoomid() {
-        return roomid;
-    }
-
-    public float getTotal() {
-        return total;
-    }
-
-    public void setTotal(float total) {
-        this.total = total;
-    }
-
-    public float getBalance() {
-        return balance;
-    }
-
-    public void setBalance(float balance) {
-        this.balance = balance;
-    }
-
-    public float getAdvance() {
-        return Advance;
-    }
-
-    public void setAdvance(float Advance) {
-        this.Advance = Advance;
-    }
-
-    public void setRoomid(int roomid) {
-        this.roomid = roomid;
-    }
-
-    public int getTreatmentid() {
-        return treatmentid;
-    }
-
-    public void setTreatmentid(int treatmentid) {
-        this.treatmentid = treatmentid;
-    }
-
-    public String getRoomtype() {
-        return roomtype;
-    }
-
-    public void setRoomtype(String roomtype) {
-        this.roomtype = roomtype;
-    }
-
-    public String getTreatmenttype() {
-        return treatmenttype;
-    }
-
-    public void setTreatmenttype(String treatmenttype) {
-        this.treatmenttype = treatmenttype;
-    }
-
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
-    public float getAmount() {
-        return amount;
-    }
-
-    public void setAmount(float amount) {
-        this.amount = amount;
-    }
-    public float price,amount;
-    
-
-    public String getDepartment() {
-        return Department;
-    }
-
-    public void setDepartment(String Department) {
-        this.Department = Department;
-    }
-
-    public String getDoctor() {
-        return Doctor;
-    }
-
-    public void setDoctor(String Doctor) {
-        this.Doctor = Doctor;
-    }
-
-    public int getPatientid() {
-        return patientid;
-    }
-
-    public void setPatientid(int patientid) {
-        this.patientid = patientid;
-    }
-
-    public String getPatientname() {
-        return patientname;
-    }
-
-    public void setPatientname(String patientname) {
-        this.patientname = patientname;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getContact() {
-        return contact;
-    }
-
-    public void setContact(String contact) {
-        this.contact = contact;
-    }
-
-    public String getEmergencycontact() {
-        return emergencycontact;
-    }
-
-    public void setEmergencycontact(String emergencycontact) {
-        this.emergencycontact = emergencycontact;
-    }
-
-    public String getRelation() {
-        return relation;
-    }
-
-    public void setRelation(String relation) {
-        this.relation = relation;
-    }
-
-    public String getEmergencynumber() {
-        return emergencynumber;
-    }
-
-    public void setEmergencynumber(String emergencynumber) {
-        this.emergencynumber = emergencynumber;
-    }
-
-    public String getDetails() {
-        return details;
-    }
-
-    public void setDetails(String details) {
-        this.details = details;
-    }
-
-    public String getRefdoctor() {
-        return refdoctor;
-    }
-
-    public void setRefdoctor(String refdoctor) {
-        this.refdoctor = refdoctor;
-    }
-
-    public String getRefhospital() {
-        return refhospital;
-    }
-
-    public void setRefhospital(String refhospital) {
-        this.refhospital = refhospital;
-    }
-
-    public String getRefhosop() {
-        return refhosop;
-    }
-
-    public void setRefhosop(String refhosop) {
-        this.refhosop = refhosop;
-    }
-
-    public Date getRegdate() {
-        return regdate;
-    }
-
-    public void setRegdate(Date regdate) {
-        this.regdate = regdate;
-    }
-
-    public Date getDob() {
-        return dob;
-    }
-
-    public void setDob(Date dob) {
-        this.dob = dob;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-    
+	private String patientName;
+	private String gender;
+	private String address;
+	private String contact;
+	private String emergencyContact;
+	private String relation;
+	private String emergencyNumber;
+	private String details;
+	private String refDoctor;
+	private String refHospital;
+	private String refHosOP;
+	private Date regDate;
+	private Date dob;
+	private Date currentDate;
+	private Integer age;
+	private Integer patientId;
+	public String department;
+	private String doctor;
+	private String ipStatus;
+	private Integer roomId;
+	private Integer treatmentId;
+	private Integer ipId;
+	public String getPatientName() {
+		return patientName;
+	}
+	public void setPatientName(String patientName) {
+		this.patientName = patientName;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getContact() {
+		return contact;
+	}
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+	public String getEmergencyContact() {
+		return emergencyContact;
+	}
+	public void setEmergencyContact(String emergencyContact) {
+		this.emergencyContact = emergencyContact;
+	}
+	public String getRelation() {
+		return relation;
+	}
+	public void setRelation(String relation) {
+		this.relation = relation;
+	}
+	public String getEmergencyNumber() {
+		return emergencyNumber;
+	}
+	public void setEmergencyNumber(String emergencyNumber) {
+		this.emergencyNumber = emergencyNumber;
+	}
+	public String getDetails() {
+		return details;
+	}
+	public void setDetails(String details) {
+		this.details = details;
+	}
+	public String getRefDoctor() {
+		return refDoctor;
+	}
+	public void setRefDoctor(String refDoctor) {
+		this.refDoctor = refDoctor;
+	}
+	public String getRefHospital() {
+		return refHospital;
+	}
+	public void setRefHospital(String refHospital) {
+		this.refHospital = refHospital;
+	}
+	public String getRefHosOP() {
+		return refHosOP;
+	}
+	public void setRefHosOP(String refHosOP) {
+		this.refHosOP = refHosOP;
+	}
+	public Date getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
+	}
+	public Date getDob() {
+		return dob;
+	}
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+	public Date getCurrentDate() {
+		return currentDate;
+	}
+	public void setCurrentDate(Date currentDate) {
+		this.currentDate = currentDate;
+	}
+	public Integer getAge() {
+		return age;
+	}
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+	public Integer getPatientId() {
+		return patientId;
+	}
+	public void setPatientId(Integer patientId) {
+		this.patientId = patientId;
+	}
+	public String getDepartment() {
+		return department;
+	}
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+	public String getDoctor() {
+		return doctor;
+	}
+	public void setDoctor(String doctor) {
+		this.doctor = doctor;
+	}
+	public String getIpStatus() {
+		return ipStatus;
+	}
+	public void setIpStatus(String ipStatus) {
+		this.ipStatus = ipStatus;
+	}
+	public Integer getRoomId() {
+		return roomId;
+	}
+	public void setRoomId(Integer roomId) {
+		this.roomId = roomId;
+	}
+	public Integer getTreatmentId() {
+		return treatmentId;
+	}
+	public void setTreatmentId(Integer treatmentId) {
+		this.treatmentId = treatmentId;
+	}
+	public Integer getIpId() {
+		return ipId;
+	}
+	public void setIpId(Integer ipId) {
+		this.ipId = ipId;
+	}
+	@Override
+	public String toString() {
+		return "IPRegister [patientName=" + patientName + ", gender=" + gender + ", address=" + address + ", contact="
+				+ contact + ", emergencyContact=" + emergencyContact + ", relation=" + relation + ", emergencyNumber="
+				+ emergencyNumber + ", details=" + details + ", refDoctor=" + refDoctor + ", refHospital=" + refHospital
+				+ ", refHosOP=" + refHosOP + ", regDate=" + regDate + ", dob=" + dob + ", currentDate=" + currentDate
+				+ ", age=" + age + ", patientId=" + patientId + ", department=" + department + ", doctor=" + doctor
+				+ ", ipStatus=" + ipStatus + ", roomId=" + roomId + ", treatmentId=" + treatmentId + ", ipId=" + ipId
+				+ "]";
+	}
+
+	
 }

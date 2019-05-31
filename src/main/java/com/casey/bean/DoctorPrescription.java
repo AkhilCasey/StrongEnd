@@ -6,7 +6,6 @@
 package com.casey.bean;
 
 import java.sql.Timestamp;
-import java.sql.Date;
 
 /**
  * 
