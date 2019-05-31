@@ -9,106 +9,97 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 /**
+ * 
+ * @author Akhil
  *
- * @author D06515
  */
 public class LaboratoryBean {
 
-    String status,result,testname; 
-    int slno, reportid,patientid,labtechnicianid,doctorid;
-    Date startdate,enddate;
-    Timestamp Prescribed_Date;
+	private String status;
+	private String result;
+	private String testName;
+	private Integer siNo;
+	private Integer reportId;
+	private Integer patientId;
+	private Integer labTechnicianId;
+	private Integer doctorId;
+	private Date startDate;
+	private Date endDate;
+	private Timestamp prescribedDate;
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getResult() {
+		return result;
+	}
+	public void setResult(String result) {
+		this.result = result;
+	}
+	public String getTestName() {
+		return testName;
+	}
+	public void setTestName(String testName) {
+		this.testName = testName;
+	}
+	public Integer getSiNo() {
+		return siNo;
+	}
+	public void setSiNo(Integer siNo) {
+		this.siNo = siNo;
+	}
+	public Integer getReportId() {
+		return reportId;
+	}
+	public void setReportId(Integer reportId) {
+		this.reportId = reportId;
+	}
+	public Integer getPatientId() {
+		return patientId;
+	}
+	public void setPatientId(Integer patientId) {
+		this.patientId = patientId;
+	}
+	public Integer getLabTechnicianId() {
+		return labTechnicianId;
+	}
+	public void setLabTechnicianId(Integer labTechnicianId) {
+		this.labTechnicianId = labTechnicianId;
+	}
+	public Integer getDoctorId() {
+		return doctorId;
+	}
+	public void setDoctorId(Integer doctorId) {
+		this.doctorId = doctorId;
+	}
+	public Date getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+	public Date getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+	public Timestamp getPrescribedDate() {
+		return prescribedDate;
+	}
+	public void setPrescribedDate(Timestamp prescribedDate) {
+		this.prescribedDate = prescribedDate;
+	}
+	@Override
+	public String toString() {
+		return "LaboratoryBean [status=" + status + ", result=" + result + ", testName=" + testName + ", siNo=" + siNo
+				+ ", reportId=" + reportId + ", patientId=" + patientId + ", labTechnicianId=" + labTechnicianId
+				+ ", doctorId=" + doctorId + ", startDate=" + startDate + ", endDate=" + endDate + ", prescribedDate="
+				+ prescribedDate + "]";
+	}
 
-    public Timestamp getPrescribed_Date() {
-        return Prescribed_Date;
-    }
+	
 
-    public void setPrescribed_Date(Timestamp Prescribed_Date) {
-        this.Prescribed_Date = Prescribed_Date;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getResult() {
-        return result;
-    }
-
-    public void setResult(String result) {
-        this.result = result;
-    }
-
-    public String getTestname() {
-        return testname;
-    }
-
-    public void setTestname(String testname) {
-        this.testname = testname;
-    }
-
-    public int getSlno() {
-        return slno;
-    }
-
-    public void setSlno(int slno) {
-        this.slno = slno;
-    }
-
-    public int getReportid() {
-        return reportid;
-    }
-
-    public void setReportid(int reportid) {
-        this.reportid = reportid;
-    }
-
-    public int getPatientid() {
-        return patientid;
-    }
-
-    public void setPatientid(int patientid) {
-        this.patientid = patientid;
-    }
-
-    public int getLabtechnicianid() {
-        return labtechnicianid;
-    }
-
-    public void setLabtechnicianid(int labtechnicianid) {
-        this.labtechnicianid = labtechnicianid;
-    }
-
-    public int getDoctorid() {
-        return doctorid;
-    }
-
-    public void setDoctorid(int doctorid) {
-        this.doctorid = doctorid;
-    }
-
-    public Date getStartdate() {
-        return startdate;
-    }
-
-    public void setStartdate(Date startdate) {
-        this.startdate = startdate;
-    }
-
-    public Date getEnddate() {
-        return enddate;
-    }
-
-    public void setEnddate(Date enddate) {
-        this.enddate = enddate;
-    }
-
-
-
-
-    
 }

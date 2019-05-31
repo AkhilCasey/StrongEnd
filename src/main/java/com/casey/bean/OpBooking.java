@@ -6,71 +6,66 @@
 package com.casey.bean;
 
 /**
+ * 
+ * @author Akhil
  *
- * @author D06507
  */
 public class OpBooking {
-    
-    int BookingID,OpId,DocId;
-    String Name,Date,Address,DocName;
 
-    public String getName() {
-        return Name;
-    }
+	private Integer bookingId;
+	private Integer opId;
+	private Integer docId;
+	private String name;
+	private String date;
+	private String address;
+	private String docName;
+	public Integer getBookingId() {
+		return bookingId;
+	}
+	public void setBookingId(Integer bookingId) {
+		this.bookingId = bookingId;
+	}
+	public Integer getOpId() {
+		return opId;
+	}
+	public void setOpId(Integer opId) {
+		this.opId = opId;
+	}
+	public Integer getDocId() {
+		return docId;
+	}
+	public void setDocId(Integer docId) {
+		this.docId = docId;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getDocName() {
+		return docName;
+	}
+	public void setDocName(String docName) {
+		this.docName = docName;
+	}
+	@Override
+	public String toString() {
+		return "OpBooking [bookingId=" + bookingId + ", opId=" + opId + ", docId=" + docId + ", name=" + name
+				+ ", date=" + date + ", address=" + address + ", docName=" + docName + "]";
+	}
 
-    public String getDocName() {
-        return DocName;
-    }
-
-    public void setDocName(String DocName) {
-        this.DocName = DocName;
-    }
-
-    public void setName(String Name) {
-        this.Name = Name;
-    }
-
-    public String getAddress() {
-        return Address;
-    }
-
-    public void setAddress(String Address) {
-        this.Address = Address;
-    }
-
-    
-    public int getBookingID() {
-        return BookingID;
-    }
-
-    public void setBookingID(int BookingID) {
-        this.BookingID = BookingID;
-    }
-
-    public int getOpId() {
-        return OpId;
-    }
-
-    public void setOpId(int OpId) {
-        this.OpId = OpId;
-    }
-
-    public int getDocId() {
-        return DocId;
-    }
-
-    public void setDocId(int DocId) {
-        this.DocId = DocId;
-    }
-
-  
-
-    public String getDate() {
-        return Date;
-    }
-
-    public void setDate(String Date) {
-        this.Date = Date;
-    }
-    
+	
 }
