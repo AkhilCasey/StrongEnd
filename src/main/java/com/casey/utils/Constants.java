@@ -17,4 +17,10 @@ public class Constants {
 	public static final int LEFT_JOB_STATUS = 2;
 	public static final int REJOIN_JOB_STATUS = 3;
 	public static final int INTERN_JOB_STATUS = 4;
+	
+    
+    public static final String RECEPTION_BILL = "Reception_Bills";
+    public static final String PHARMACY_BILL = "Pharmacy_Bills";
+    public static final String LABORATORY_BILL = "Laboratory_Bills";
+    public static final String IP_BILL = "IP_Bills";
 }
