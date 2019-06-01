@@ -100,7 +100,7 @@ if(session.getAttribute("user") instanceof SiddhaEmployee && phar.getAccess_priv
         try {
             int quantity=0;
             float mrp=0,total=0,cost=0;
-            DoctorPrescription obj = new DoctorPrescription();
+            PrescriptionDTO obj = new PrescriptionDTO();
             int rid = Integer.parseInt(request.getParameter("rid"));
             int patid = Integer.parseInt(request.getParameter("patid"));
                        
@@ -205,9 +205,9 @@ System.out.println("ENTER THE PDF");
 
  DoctorPrescriptionManager objM = new DoctorPrescriptionManager();
             DoctorPrescriptionManager objM1 = new DoctorPrescriptionManager();
-            ArrayList<DoctorPrescription> array = objM.selectbyid(rid);
+            ArrayList<PrescriptionDTO> array = objM.selectbyid(rid);
             int i=1;
-            for (DoctorPrescription p : array) {
+            for (PrescriptionDTO p : array) {
                 mrp=p.getMrp();
                 quantity=Integer.parseInt(p.getQuantity());
                 cost = mrp*quantity;

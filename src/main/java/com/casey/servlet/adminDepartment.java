@@ -78,7 +78,7 @@ public class adminDepartment extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        adminBean dept=new adminBean();
+        AdminDTO dept=new AdminDTO();
         dept.setDepartment(request.getParameter("department"));
         dept.setFloor(request.getParameter("floor"));
         dept.setHead(request.getParameter("head"));

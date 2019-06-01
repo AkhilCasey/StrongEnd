@@ -112,7 +112,7 @@ public class updatesingle extends HttpServlet {
             } catch (ParseException e1) {
                 System.out.println("Exception " + e1);
             }
-            PharmacyMedicine pm = new PharmacyMedicine();
+            PharmacyMedicineDTO pm = new PharmacyMedicineDTO();
             System.out.println("23333333333"+request.getParameter("Name") );
             pm.setMedicinename(request.getParameter("Name"));
             pm.setMedcode(request.getParameter("Code"));

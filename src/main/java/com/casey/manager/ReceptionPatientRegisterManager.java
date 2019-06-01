@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import com.casey.bean.PatientDTO;
 import com.casey.bean.ReceptionPatientRegister;
 import com.casey.dbconnection.ConnectionProvider;
 
@@ -21,7 +22,7 @@ import com.casey.dbconnection.ConnectionProvider;
  */
 public class ReceptionPatientRegisterManager {
 
-    public int insertPatient(ReceptionPatientRegister rp) throws SQLException {
+    public int insertPatient(PatientDTO rp) throws SQLException {
         int x = 0;
         ConnectionProvider obj = new ConnectionProvider();
         Connection con = obj.createConnection();

@@ -12,10 +12,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.casey.bean.DoctorPrescription;
-import com.casey.bean.PharmacyMedicine;
+import com.casey.bean.PrescriptionDTO;
+import com.casey.bean.PharmacyMedicineDTO;
 import com.casey.bean.ReceptionPatientRegister;
-import com.casey.bean.adminBean;
+import com.casey.bean.AdminDTO;
+import com.casey.bean.PatientDTO;
 import com.casey.dbconnection.ConnectionProvider;
 
 /**
@@ -24,22 +25,22 @@ import com.casey.dbconnection.ConnectionProvider;
  */
 public class adminManager {
     
-    public ArrayList<adminBean> viewDepartments() throws SQLException
+    public ArrayList<AdminDTO> viewDepartments() throws SQLException
     {
         
-        ArrayList<adminBean> list=new ArrayList<adminBean>();
+        ArrayList<AdminDTO> list=new ArrayList<AdminDTO>();
         Connection con = ConnectionProvider.createConnection();
         PreparedStatement pst = con.prepareStatement("select distinct * from department");
         ResultSet rs=pst.executeQuery();
         while(rs.next()){
-           adminBean ab=new adminBean();
+           AdminDTO ab=new AdminDTO();
            ab.setDepartment(rs.getString(2));
            list.add(ab);
         }
     return list;
     }
 
-    public void insert(adminBean ob) throws SQLException {
+    public void insert(AdminDTO ob) throws SQLException {
         Connection con = ConnectionProvider.createConnection();
         PreparedStatement pst = con.prepareStatement("insert into department(Department_Name,Phone_Number,Location,Floor,Head) values(?,?,?,?,?) ");
         pst.setString(1, ob.getDepartment());
@@ -66,7 +67,7 @@ public class adminManager {
         return rs;
     }
     
-    public int insertDepartment(adminBean ad)throws SQLException
+    public int insertDepartment(AdminDTO ad)throws SQLException
     {
         Connection con = ConnectionProvider.createConnection();
        
@@ -77,7 +78,7 @@ public class adminManager {
         return i;
     }
     
-    public int insert1(adminBean tb) throws SQLException
+    public int insert1(AdminDTO tb) throws SQLException
     {
         ConnectionProvider db=new ConnectionProvider();
         Connection con=db.createConnection();
@@ -88,15 +89,15 @@ public class adminManager {
        return i;
          }
     
-    public ArrayList<adminBean> treatementview() throws SQLException{
+    public ArrayList<AdminDTO> treatementview() throws SQLException{
         
-         ArrayList<adminBean> arraylist=new ArrayList<adminBean>();
+         ArrayList<AdminDTO> arraylist=new ArrayList<AdminDTO>();
     Connection con=ConnectionProvider.createConnection();
     PreparedStatement pst=con.prepareStatement("select * from treatment");
     ResultSet rs=pst.executeQuery();
     while (rs.next()) {
            
-            adminBean tb = new adminBean();
+            AdminDTO tb = new AdminDTO();
             tb.setTreatementid(rs.getInt(1));
             tb.setTreatementtype(rs.getString(2));
             tb.setAmount(rs.getFloat(3));
@@ -114,9 +115,9 @@ public class adminManager {
     
     
     }
-    public adminBean showTreatement(int treatementid) throws SQLException{
+    public AdminDTO showTreatement(int treatementid) throws SQLException{
         
-        adminBean tb=new adminBean();
+        AdminDTO tb=new AdminDTO();
     ConnectionProvider db=new ConnectionProvider();
     Connection con=db.createConnection();
     PreparedStatement pst=con.prepareStatement("Select * from treatment where Treatment_Id=?");
@@ -136,7 +137,7 @@ public class adminManager {
     
     
     }
-     public int update(adminBean tb) throws SQLException{
+     public int update(AdminDTO tb) throws SQLException{
      
      ConnectionProvider db=new ConnectionProvider();
         Connection con=db.createConnection();
@@ -153,7 +154,7 @@ public class adminManager {
      
      }
      
-     public int insertPatient(ReceptionPatientRegister rp) throws SQLException
+     public int insertPatient(PatientDTO rp) throws SQLException
     {
         ConnectionProvider obj=new ConnectionProvider();
         Connection con=obj.createConnection();
@@ -178,15 +179,15 @@ public class adminManager {
         return i;
     }
      
-      public ArrayList<DoctorPrescription> viewDoctorreport() throws SQLException {
+      public ArrayList<PrescriptionDTO> viewDoctorreport() throws SQLException {
          
-          ArrayList<DoctorPrescription> arraylist=new ArrayList<DoctorPrescription>();
+          ArrayList<PrescriptionDTO> arraylist=new ArrayList<PrescriptionDTO>();
          Connection con=ConnectionProvider.createConnection();
          PreparedStatement pst=con.prepareStatement("select * from doctormedicalreport"); 
          ResultSet rs=pst.executeQuery();
         while (rs.next()) {
            
-            DoctorPrescription dp = new DoctorPrescription();
+            PrescriptionDTO dp = new PrescriptionDTO();
             
             dp.setReportID(rs.getInt(1));
             dp.setPatient_ID(rs.getInt(2));
@@ -201,15 +202,15 @@ public class adminManager {
         con.close();
         return arraylist;
      }
-     public ArrayList<PharmacyMedicine> viewPharmacyreport() throws SQLException  {
+     public ArrayList<PharmacyMedicineDTO> viewPharmacyreport() throws SQLException  {
          
-          ArrayList<PharmacyMedicine> arraylist=new ArrayList<PharmacyMedicine>();
+          ArrayList<PharmacyMedicineDTO> arraylist=new ArrayList<PharmacyMedicineDTO>();
          Connection con=ConnectionProvider.createConnection();
          PreparedStatement pst=con.prepareStatement("select * from pharmacystock"); 
          ResultSet rs=pst.executeQuery();
         while (rs.next()) {
            
-            PharmacyMedicine pm = new PharmacyMedicine();
+            PharmacyMedicineDTO pm = new PharmacyMedicineDTO();
             
             pm.setStockId(rs.getInt(1));
             pm.setMedicinename(rs.getString(2));

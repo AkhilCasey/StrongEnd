@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.casey.bean.DepartmentMaster;
+import com.casey.bean.DepartmentDoctorDTO;
 import com.casey.dbconnection.ConnectionProvider;
 
 /**
@@ -36,7 +36,7 @@ public class DepartmentDoctorManager {
         java.sql.PreparedStatement pst = con.prepareStatement("SELECT DISTINCT Doctor_Name FROM departmentdoctor WHERE Department_Name=?");
         pst.setString(1, dept);
         ResultSet rs = pst.executeQuery();
-        DepartmentMaster obj = new DepartmentMaster();
+        DepartmentDoctorDTO obj = new DepartmentDoctorDTO();
         while (rs.next()) {
             //System.out.println(rs.getString(1));
             obj.setDoctor(rs.getString(1));

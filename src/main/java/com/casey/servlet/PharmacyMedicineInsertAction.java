@@ -112,7 +112,7 @@ public class PharmacyMedicineInsertAction extends HttpServlet {
             } catch (ParseException e1) {
                 System.out.println("Exception " + e1);
             }
-            PharmacyMedicine pm=new PharmacyMedicine();
+            PharmacyMedicineDTO pm=new PharmacyMedicineDTO();
             pm.setMedicinename(request.getParameter("Name"));
             pm.setMedcode(request.getParameter("Code"));
             pm.setBatchcode(request.getParameter("BatchCode"));

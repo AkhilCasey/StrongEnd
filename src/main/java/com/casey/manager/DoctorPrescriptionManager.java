@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.casey.bean.DoctorPrescription;
+import com.casey.bean.PrescriptionDTO;
 import com.casey.dbconnection.ConnectionProvider;
 
 /*
@@ -22,7 +22,7 @@ import com.casey.dbconnection.ConnectionProvider;
  */
 public class DoctorPrescriptionManager {
     
-    public int insert(DoctorPrescription po) throws SQLException {
+    public int insert(PrescriptionDTO po) throws SQLException {
         int x = 0;
         Connection con = ConnectionProvider.createConnection();
         PreparedStatement pst = con.prepareStatement("insert into doctormedicalreport(Patient_Id,"
@@ -49,14 +49,14 @@ public class DoctorPrescriptionManager {
         return x;
     }
 
-    public ArrayList<DoctorPrescription> select() throws SQLException {
+    public ArrayList<PrescriptionDTO> select() throws SQLException {
         Connection con = ConnectionProvider.createConnection();
-        ArrayList<DoctorPrescription> arraylist = new ArrayList<DoctorPrescription>();
+        ArrayList<PrescriptionDTO> arraylist = new ArrayList<PrescriptionDTO>();
         PreparedStatement pst = con.prepareStatement("select * from doctormedicalreport group by Report_Id");
         ResultSet rs = pst.executeQuery();
         
         while (rs.next()) {
-            DoctorPrescription obj = new DoctorPrescription();
+            PrescriptionDTO obj = new PrescriptionDTO();
             obj.setReportID(rs.getInt(1));
             System.out.println("111"+rs.getInt(1));
             obj.setPatient_ID(rs.getInt(2));
@@ -77,12 +77,12 @@ public class DoctorPrescriptionManager {
         
     }
     
-    public void insertLab(List<DoctorPrescription> obj) throws SQLException {
+    public void insertLab(List<PrescriptionDTO> obj) throws SQLException {
         
         Connection con = ConnectionProvider.createConnection();
         
         PreparedStatement pst1 = con.prepareStatement("insert into laboratory(Report_Id,Patient_Id,Test_Name,Doctor_id,Prescribed_Date,Status)values (?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
-        for (DoctorPrescription po : obj) {
+        for (PrescriptionDTO po : obj) {
             pst1.setInt(1, po.getReportID());
             // System.out.println("oooooooooooo"+po.getReportID());
             pst1.setInt(2, po.getPatient_ID());
@@ -99,16 +99,16 @@ public class DoctorPrescriptionManager {
         
     }
     
-     public ArrayList<DoctorPrescription> selectbyid(int id) throws SQLException {
+     public ArrayList<PrescriptionDTO> selectbyid(int id) throws SQLException {
         Connection con = ConnectionProvider.createConnection();
        
         PreparedStatement pst = con.prepareStatement("select * from prescribed_medicines where medical_report_id=?");
         pst.setInt(1, id);
         ResultSet rs = pst.executeQuery();
-        ArrayList<DoctorPrescription> arraylist = new ArrayList<DoctorPrescription>();
+        ArrayList<PrescriptionDTO> arraylist = new ArrayList<PrescriptionDTO>();
         
         while (rs.next()) {
-           DoctorPrescription obj = new DoctorPrescription();
+           PrescriptionDTO obj = new PrescriptionDTO();
            
            obj.setPrescriptionid(rs.getInt(1));
             obj.setMedicalReportId(rs.getInt(2));
@@ -127,12 +127,12 @@ public class DoctorPrescriptionManager {
         return arraylist;        
         
     }
-    public void insertmedicine(List<DoctorPrescription> medicines) throws SQLException {
+    public void insertmedicine(List<PrescriptionDTO> medicines) throws SQLException {
 
         Connection con = ConnectionProvider.createConnection();
         String sql = "INSERT INTO prescribed_medicines(medical_report_id,medicine_name,mrp,`usage`,quantity,duration,`day`,comments)VALUES (?,?,?,?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(sql);
-        for (DoctorPrescription medicine : medicines) {
+        for (PrescriptionDTO medicine : medicines) {
             //MedicalReport med =new MedicalReport();
             // medicine.setComments(med.getComments());
 
@@ -154,9 +154,9 @@ public class DoctorPrescriptionManager {
 
     }
  
-public ArrayList<DoctorPrescription> viewbill() throws SQLException {
+public ArrayList<PrescriptionDTO> viewbill() throws SQLException {
         Connection con = ConnectionProvider.createConnection();
-       ArrayList<DoctorPrescription> arraylist = new ArrayList<DoctorPrescription>();
+       ArrayList<PrescriptionDTO> arraylist = new ArrayList<PrescriptionDTO>();
                PreparedStatement pst = con.prepareStatement("select * from pharmacybill ");
         
         ResultSet rs = pst.executeQuery();
@@ -164,7 +164,7 @@ public ArrayList<DoctorPrescription> viewbill() throws SQLException {
         
         while (rs.next()) {
             
-           DoctorPrescription obj = new DoctorPrescription();
+           PrescriptionDTO obj = new PrescriptionDTO();
            
             obj.setReportID(rs.getInt(2));
             obj.setPrescriptionid(rs.getInt(3));
@@ -193,7 +193,7 @@ public Float SelectMedCost(String name) throws SQLException{
  }
 
 
-public void insert12(DoctorPrescription obj) throws SQLException {
+public void insert12(PrescriptionDTO obj) throws SQLException {
         
         Connection con = ConnectionProvider.createConnection();
               PreparedStatement pst1 = con.prepareStatement("insert into pharmacybill(report_id,prescription_id,medicine_name,`usage`,mrp,quantity,duration,day)values (?,?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
@@ -209,15 +209,15 @@ public void insert12(DoctorPrescription obj) throws SQLException {
             
         }
    
-public ArrayList<DoctorPrescription> selectbill(int rid) throws SQLException {
+public ArrayList<PrescriptionDTO> selectbill(int rid) throws SQLException {
         Connection con = ConnectionProvider.createConnection();
-       ArrayList<DoctorPrescription> arraylist = new ArrayList<DoctorPrescription>();
+       ArrayList<PrescriptionDTO> arraylist = new ArrayList<PrescriptionDTO>();
                PreparedStatement pst = con.prepareStatement("select * from pharmacybill where report_id=?");
         pst.setInt(1, rid);
         ResultSet rs = pst.executeQuery();
                
         while (rs.next()) {
-                  DoctorPrescription obj = new DoctorPrescription();
+                  PrescriptionDTO obj = new PrescriptionDTO();
             
             obj.setPrescriptionid(rs.getInt(2));
             obj.setMedicalReportId(rs.getInt(3));
@@ -236,14 +236,14 @@ public ArrayList<DoctorPrescription> selectbill(int rid) throws SQLException {
     }
 
     
-public DoctorPrescription selectid(int id) throws SQLException {
+public PrescriptionDTO selectid(int id) throws SQLException {
         Connection con = ConnectionProvider.createConnection();
        
         PreparedStatement pst = con.prepareStatement("select * from prescribed_medicines where  prescription_id=?");
         pst.setInt(1, id);
         ResultSet rs = pst.executeQuery();
         
-         DoctorPrescription obj = new DoctorPrescription();
+         PrescriptionDTO obj = new PrescriptionDTO();
         while (rs.next()) {
                  
             obj.setPrescriptionid(rs.getInt(1));

@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.casey.bean.PharmacyMedicine;
+import com.casey.bean.PharmacyMedicineDTO;
 import com.casey.dbconnection.ConnectionProvider;
 
 /**
@@ -21,7 +21,7 @@ import com.casey.dbconnection.ConnectionProvider;
  */
 public class PharmacyMedicineManager {
 
-    public int insertMedicine(PharmacyMedicine pm) throws SQLException {
+    public int insertMedicine(PharmacyMedicineDTO pm) throws SQLException {
         ConnectionProvider ob = new ConnectionProvider();
         Connection con = ob.createConnection();
         PreparedStatement pst = con.prepareStatement("insert into pharmacystock(Medicine_Name,Medicine_Code,BatchCode,MNF_Date,Exp_Date,Supplier_Name,UOM,Rate,Total_Amount,Category,Quantity)values(?,?,?,?,?,?,?,?,?,?,?)");
@@ -41,7 +41,7 @@ public class PharmacyMedicineManager {
         return i;
     }
 
-    public int updateMedicine(PharmacyMedicine pm) throws SQLException {
+    public int updateMedicine(PharmacyMedicineDTO pm) throws SQLException {
 
         ConnectionProvider ob = new ConnectionProvider();
         Connection con = ob.createConnection();
@@ -66,8 +66,8 @@ public class PharmacyMedicineManager {
 
     }
 
-    public ArrayList<PharmacyMedicine> select() throws SQLException {
-        ArrayList<PharmacyMedicine> arraylist = new ArrayList<PharmacyMedicine>();
+    public ArrayList<PharmacyMedicineDTO> select() throws SQLException {
+        ArrayList<PharmacyMedicineDTO> arraylist = new ArrayList<PharmacyMedicineDTO>();
         ConnectionProvider db = new ConnectionProvider();
         Connection con = db.createConnection();
         PreparedStatement pst = con.prepareStatement(" Select * from pharmacystock ");
@@ -75,7 +75,7 @@ public class PharmacyMedicineManager {
 
         while (rs.next()) {
 
-            PharmacyMedicine rp = new PharmacyMedicine();
+            PharmacyMedicineDTO rp = new PharmacyMedicineDTO();
 
             rp.setStockId(rs.getInt(1));
             rp.setMedicinename(rs.getString(2));
@@ -99,13 +99,13 @@ public class PharmacyMedicineManager {
 
     }
 
-    public PharmacyMedicine viewsingle(int id) throws SQLException {
+    public PharmacyMedicineDTO viewsingle(int id) throws SQLException {
         ConnectionProvider db = new ConnectionProvider();
         Connection con = db.createConnection();
         PreparedStatement pst = con.prepareStatement(" Select * from pharmacystock where Stock_Id=?");
         pst.setInt(1, id);
         ResultSet rs = pst.executeQuery();
-        PharmacyMedicine rp = new PharmacyMedicine();
+        PharmacyMedicineDTO rp = new PharmacyMedicineDTO();
         while (rs.next()) {
 
             rp.setStockId(rs.getInt(1));
@@ -143,10 +143,10 @@ public class PharmacyMedicineManager {
         return name_list;
     }
 
-    public PharmacyMedicine getData(String name) throws ClassNotFoundException, SQLException, NullPointerException {
+    public PharmacyMedicineDTO getData(String name) throws ClassNotFoundException, SQLException, NullPointerException {
         ConnectionProvider db = new ConnectionProvider();
         Connection con = db.createConnection();
-        PharmacyMedicine obj = new PharmacyMedicine();
+        PharmacyMedicineDTO obj = new PharmacyMedicineDTO();
         PreparedStatement pst = con.prepareStatement("Select Rate from pharmacystock where Medicine_Name LIKE ?");
         pst.setString(1, name + "%");
         ResultSet rs = pst.executeQuery();

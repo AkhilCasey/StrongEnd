@@ -43,7 +43,7 @@ public class Getdata extends HttpServlet {
          PrintWriter out = response.getWriter();
         String name=request.getParameter("med");
         System.out.println("system"+name);
-          PharmacyMedicine matched=new PharmacyMedicineManager().getData(name);
+          PharmacyMedicineDTO matched=new PharmacyMedicineManager().getData(name);
            String json = new Gson().toJson(matched);
             out.write(json);
         }

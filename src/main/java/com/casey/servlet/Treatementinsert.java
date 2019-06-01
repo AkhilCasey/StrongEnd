@@ -78,7 +78,7 @@ public class Treatementinsert extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            adminBean tb=new adminBean();
+            AdminDTO tb=new AdminDTO();
             tb.setTreatementtype(request.getParameter("treatementtype"));
             tb.setAmount(Float.parseFloat(request.getParameter("amount")));
             System.out.println("Type="+request.getParameter("treatementtype"));

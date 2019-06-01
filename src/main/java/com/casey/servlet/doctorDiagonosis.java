@@ -99,7 +99,7 @@ int g=0;
             System.out.println(new Timestamp(date.getTime()));
             System.out.println("timestamp date in servlet is " + new Timestamp(date.getTime()));
 
-            DoctorPrescription dig = new DoctorPrescription();
+            PrescriptionDTO dig = new PrescriptionDTO();
             dig.setName(request.getParameter("Name"));
             dig.setDate(new Timestamp(date.getTime()));
             dig.setDoctor_ID((doctor.getEmp_id()));
@@ -117,7 +117,7 @@ int g=0;
             DoctorPrescriptionManager purM = new DoctorPrescriptionManager();
             int a = purM.insert(dig);
 
-            List<DoctorPrescription> lablist = new ArrayList<DoctorPrescription>();
+            List<PrescriptionDTO> lablist = new ArrayList<PrescriptionDTO>();
             String[] testname = request.getParameterValues("tests");
 
             if (!testname[0].equals("No Test")) {
@@ -128,7 +128,7 @@ int g=0;
                         System.out.println("ggmmmggg" + g);
                     } else {
 
-                        DoctorPrescription lab = new DoctorPrescription();
+                        PrescriptionDTO lab = new PrescriptionDTO();
                         lab.setReportID(a);
                         lab.setPatient_ID(Integer.parseInt(opid));
                         lab.setTest_name(testname[i]);
@@ -143,7 +143,7 @@ int g=0;
 
                 purM.insertLab(lablist);
             }
-            List<DoctorPrescription> list = new ArrayList<DoctorPrescription>();
+            List<PrescriptionDTO> list = new ArrayList<PrescriptionDTO>();
 
             String[] medicines = request.getParameterValues("medicine");
             String[] usage = request.getParameterValues("usage");
@@ -160,7 +160,7 @@ int g=0;
                     DoctorPrescriptionManager medicineM = new DoctorPrescriptionManager();
                     Float mrp = medicineM.SelectMedCost(medicines[i]);
 
-                    DoctorPrescription medicine = new DoctorPrescription();
+                    PrescriptionDTO medicine = new PrescriptionDTO();
                     medicine.setMedicalReportId(a);
                     medicine.setComments(request.getParameter("comments"));
                     medicine.setMedicineName(medicines[i]);
