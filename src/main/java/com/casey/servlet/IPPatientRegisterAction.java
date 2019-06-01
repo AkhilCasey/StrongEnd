@@ -111,7 +111,7 @@ public class IPPatientRegisterAction extends HttpServlet {
                     }
                 
                 
-                IPRegister rp=new IPRegister();
+                IPRegisterDTO rp=new IPRegisterDTO();
                 
                 rp.setPatientid(Integer.parseInt(request.getParameter("patientid")));
                 rp.setPatientname(request.getParameter("Name"));

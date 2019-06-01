@@ -78,7 +78,7 @@ public class PatientAdvancePayment extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
          try {
-            IPRegister rp=new IPRegister();
+            IPRegisterDTO rp=new IPRegisterDTO();
             IPRegisterManager rpm=new IPRegisterManager();
             rp.setPatientid(Integer.parseInt(request.getParameter("patientid")));
             float newadvance=Float.parseFloat(request.getParameter("total"));

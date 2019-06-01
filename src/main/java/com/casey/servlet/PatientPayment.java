@@ -105,7 +105,7 @@ public class PatientPayment extends HttpServlet {
                     } catch (ParseException e1) {
                         System.out.println("Exception " + e1);
                     } 
-                    IPRegister rp=new IPRegister();
+                    IPRegisterDTO rp=new IPRegisterDTO();
                     IPRegisterManager rpm=new IPRegisterManager();
                     rp.setPatientid(Integer.parseInt(request.getParameter("patientid")));
                     rp.setRegdate(sqlDate);

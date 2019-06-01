@@ -78,7 +78,7 @@ public class treatementEdit extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            TreatementBean tb=new TreatementBean();
+            TreatmentDTO tb=new TreatmentDTO();
             tb.setTreatementid(Integer.parseInt(request.getParameter("treatementid")));
             System.out.println("Treatment id--"+request.getParameter("treatementid"));
             tb.setTreatementtype(request.getParameter("treatementtype"));

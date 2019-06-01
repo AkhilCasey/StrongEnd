@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.casey.bean.IPRegister;
+import com.casey.bean.IPRegisterDTO;
 import com.casey.dbconnection.ConnectionProvider;
 
 /**
@@ -39,7 +39,7 @@ public class IPRegisterManager {
         return rs;
     }
 
-    public int insertPatient(IPRegister rp) throws SQLException {
+    public int insertPatient(IPRegisterDTO rp) throws SQLException {
        
         ConnectionProvider obj = new ConnectionProvider();
         Connection con = obj.createConnection();
@@ -66,16 +66,16 @@ public class IPRegisterManager {
         return i;
     }
     
-    public ArrayList<IPRegister> select() throws SQLException
+    public ArrayList<IPRegisterDTO> select() throws SQLException
     {
-        ArrayList<IPRegister> arraylist = new ArrayList<IPRegister>();
+        ArrayList<IPRegisterDTO> arraylist = new ArrayList<IPRegisterDTO>();
         Connection con = ConnectionProvider.createConnection();
         PreparedStatement pst = con.prepareStatement("select *  from ipregister");
        
         ResultSet rs = pst.executeQuery();
         while (rs.next())
         {            
-            IPRegister obj=new IPRegister();
+            IPRegisterDTO obj=new IPRegisterDTO();
             
             obj.setIpid(rs.getInt(1));
             obj.setPatientid(rs.getInt(2));
@@ -105,9 +105,9 @@ public class IPRegisterManager {
         return arraylist;
     }
     
-    public IPRegister patientPayment(int patientid) throws SQLException
+    public IPRegisterDTO patientPayment(int patientid) throws SQLException
     {
-        IPRegister rp=new IPRegister();
+        IPRegisterDTO rp=new IPRegisterDTO();
         ConnectionProvider ob=new ConnectionProvider();
         Connection con=ob.createConnection();
         PreparedStatement pst=con.prepareStatement("SELECT ipregister.Patient_Id,room.Price,treatment.Amount,ipregister.Balance FROM ipregister INNER JOIN room ON room.Room_Type=ipregister.Room_Type INNER JOIN treatment ON treatment.Treatment_Type=ipregister.Treatment_Type WHERE ipregister.Patient_Id=?");
@@ -124,7 +124,7 @@ public class IPRegisterManager {
         return rp;
     }
 
-    public int patientPaymentInsert(IPRegister rp) throws SQLException
+    public int patientPaymentInsert(IPRegisterDTO rp) throws SQLException
     {
         ConnectionProvider ob=new ConnectionProvider();
         Connection con=ob.createConnection(); 
@@ -139,7 +139,7 @@ public class IPRegisterManager {
         return i;
     }
     
-    public int patientBalanceUpdate(IPRegister rp) throws SQLException
+    public int patientBalanceUpdate(IPRegisterDTO rp) throws SQLException
     {
         ConnectionProvider ob=new ConnectionProvider();
         Connection con=ob.createConnection(); 
@@ -150,9 +150,9 @@ public class IPRegisterManager {
         return j;
     }
     
-    public IPRegister selectPayment(int patientid) throws SQLException
+    public IPRegisterDTO selectPayment(int patientid) throws SQLException
     {
-        IPRegister rp=new IPRegister();
+        IPRegisterDTO rp=new IPRegisterDTO();
         ConnectionProvider ob=new ConnectionProvider();
         Connection con=ob.createConnection(); 
         PreparedStatement pst=con.prepareStatement("select * from ipregister where Patient_Id=?");
@@ -167,7 +167,7 @@ public class IPRegisterManager {
         return rp;
     }
     
-    public int updateAdvance(IPRegister rp) throws SQLException
+    public int updateAdvance(IPRegisterDTO rp) throws SQLException
     {
         ConnectionProvider ob=new ConnectionProvider();
         Connection con=ob.createConnection(); 
@@ -179,16 +179,16 @@ public class IPRegisterManager {
         return i;
     }
     
-    public ArrayList<IPRegister> patientDischarge(int patientid)throws SQLException
+    public ArrayList<IPRegisterDTO> patientDischarge(int patientid)throws SQLException
     {
         ConnectionProvider ob=new ConnectionProvider();
         Connection con=ob.createConnection(); 
         PreparedStatement pst=con.prepareStatement("SELECT * FROM ippatientpayment WHERE Patient_Id=?"); 
-        ArrayList<IPRegister> arraylist = new ArrayList<IPRegister>();
+        ArrayList<IPRegisterDTO> arraylist = new ArrayList<IPRegisterDTO>();
         pst.setInt(1, patientid);
         ResultSet rs=pst.executeQuery();
         while(rs.next()){
-            IPRegister ip=new IPRegister();
+            IPRegisterDTO ip=new IPRegisterDTO();
             ip.setPatientid(rs.getInt(2));
             ip.setRegdate(rs.getDate(3));
             ip.setRoomrent(rs.getFloat(4));
@@ -201,16 +201,16 @@ public class IPRegisterManager {
     }
     
     
-     public ArrayList<IPRegister> patientDischargeBill(int patientid)throws SQLException
+     public ArrayList<IPRegisterDTO> patientDischargeBill(int patientid)throws SQLException
     {
         ConnectionProvider ob=new ConnectionProvider();
         Connection con=ob.createConnection(); 
         PreparedStatement pst=con.prepareStatement("SELECT ippatientpayment.Payment_Id,ippatientpayment.Patient_Id,ippatientpayment.Date,ippatientpayment.RoomRent,ippatientpayment.TreatmentCharge,ippatientpayment.OtherExpense,ippatientpayment.TotalAmount,ipregister.Balance FROM ippatientpayment INNER JOIN ipregister ON ipregister.Patient_Id=ippatientpayment.Patient_Id WHERE ipregister.Patient_Id=?"); 
-        ArrayList<IPRegister> arraylist = new ArrayList<IPRegister>();
+        ArrayList<IPRegisterDTO> arraylist = new ArrayList<IPRegisterDTO>();
         pst.setInt(1, patientid);
         ResultSet rs=pst.executeQuery();
         while(rs.next()){
-            IPRegister ip=new IPRegister();
+            IPRegisterDTO ip=new IPRegisterDTO();
             ip.setPatientid(rs.getInt(2));
             ip.setRegdate(rs.getDate(3));
             ip.setRoomrent(rs.getFloat(4));

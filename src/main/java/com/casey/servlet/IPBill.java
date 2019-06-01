@@ -182,9 +182,9 @@ if(session.getAttribute("user") instanceof SiddhaEmployee && user.getAccess_priv
             System.out.println("ENTER THE PDF");
 
             IPRegisterManager rpm = new IPRegisterManager();
-            ArrayList<IPRegister> array = rpm.patientDischargeBill(patientid);
+            ArrayList<IPRegisterDTO> array = rpm.patientDischargeBill(patientid);
             int i = 1;
-            for (IPRegister p : array) {
+            for (IPRegisterDTO p : array) {
 
                 DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
                 Date dat = p.getRegdate();

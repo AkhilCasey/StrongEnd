@@ -30,7 +30,8 @@ public class EmployeeDTO {
 	private String bloodGroup;
 	private Date dateBirth;
 	private Date dateRegistration;
-
+	private String adharCardDetails;
+	private String panCardDetails;
 	// private DepartmentDTO department;
 	// other relationship to be implemented.
 
@@ -244,13 +245,43 @@ public class EmployeeDTO {
 		this.dateRegistration = dateRegistration;
 	}
 
+	/**
+	 * @return the adharCardDetails
+	 */
+	public String getAdharCardDetails() {
+		return adharCardDetails;
+	}
+
+	/**
+	 * @param adharCardDetails the adharCardDetails to set
+	 */
+	public void setAdharCardDetails(String adharCardDetails) {
+		this.adharCardDetails = adharCardDetails;
+	}
+
+	/**
+	 * @return the panCardDetails
+	 */
+	public String getPanCardDetails() {
+		return panCardDetails;
+	}
+
+	/**
+	 * @param panCardDetails the panCardDetails to set
+	 */
+	public void setPanCardDetails(String panCardDetails) {
+		this.panCardDetails = panCardDetails;
+	}
+
 	@Override
 	public String toString() {
 		return "EmployeeDTO [empId=" + empId + ", accessPrivilege=" + accessPrivilege + ", phone=" + phone
 				+ ", jobStatus=" + jobStatus + ", password=" + password + ", name=" + name + ", gender=" + gender
 				+ ", address=" + address + ", designation=" + designation + ", qualifications=" + qualifications
 				+ ", jobType=" + jobType + ", email=" + email + ", bloodGroup=" + bloodGroup + ", dateBirth="
-				+ dateBirth + ", dateRegistration=" + dateRegistration + "]";
+				+ dateBirth + ", dateRegistration=" + dateRegistration + ", adharCardDetails=" + adharCardDetails
+				+ ", panCardDetails=" + panCardDetails + "]";
 	}
+
 
 }

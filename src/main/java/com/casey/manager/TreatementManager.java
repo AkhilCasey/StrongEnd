@@ -13,7 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.casey.bean.TreatementBean;
+import com.casey.bean.TreatmentDTO;
 import com.casey.dbconnection.ConnectionProvider;
 
 /**
@@ -22,7 +22,7 @@ import com.casey.dbconnection.ConnectionProvider;
  */
 public class TreatementManager {
     
-    public void insert(TreatementBean tb) throws SQLException{
+    public void insert(TreatmentDTO tb) throws SQLException{
         ConnectionProvider db=new ConnectionProvider();
         Connection con=db.createConnection();
         PreparedStatement pst=con.prepareStatement("insert into treatement(Treatement_Type,Amount)values(?,?)");
@@ -31,15 +31,15 @@ public class TreatementManager {
         pst.executeUpdate();
          }
     
-    public ArrayList<TreatementBean> treatementview() throws SQLException{
+    public ArrayList<TreatmentDTO> treatementview() throws SQLException{
         
-         ArrayList<TreatementBean> arraylist=new ArrayList<TreatementBean>();
+         ArrayList<TreatmentDTO> arraylist=new ArrayList<TreatmentDTO>();
     Connection con=ConnectionProvider.createConnection();
     PreparedStatement pst=con.prepareStatement("select * from treatement");
     ResultSet rs=pst.executeQuery();
     while (rs.next()) {
            
-            TreatementBean tb = new TreatementBean();
+            TreatmentDTO tb = new TreatmentDTO();
             tb.setTreatementid(rs.getInt(1));
             tb.setTreatementtype(rs.getString(2));
             tb.setAmount(rs.getFloat(3));
@@ -57,9 +57,9 @@ public class TreatementManager {
     
     
     }
-    public TreatementBean showTreatement(int treatementid) throws SQLException{
+    public TreatmentDTO showTreatement(int treatementid) throws SQLException{
         
-        TreatementBean tb=new TreatementBean();
+        TreatmentDTO tb=new TreatmentDTO();
     ConnectionProvider db=new ConnectionProvider();
     Connection con=db.createConnection();
     PreparedStatement pst=con.prepareStatement("Select * from treatement where Treatement_Id=?");
@@ -79,7 +79,7 @@ public class TreatementManager {
     
     
     }
-     public int update(TreatementBean tb) throws SQLException{
+     public int update(TreatmentDTO tb) throws SQLException{
      
      ConnectionProvider db=new ConnectionProvider();
         Connection con=db.createConnection();
