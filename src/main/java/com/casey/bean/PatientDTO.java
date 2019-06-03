@@ -23,14 +23,17 @@ public class PatientDTO {
 	private String details;
 
 	// came to see which doctor details here
-	private String refDoctor;
-	private String refHospital;
-	private String refHosOp;
 	public Date regDate;
 	private Date dob;
 	private String department;
 	private String depDoctor;
 	private String status;
+	
+	//reference if any
+	private String refDoctor;
+	private String refHospital;
+	private String refHosOp;
+	
 	/**
 	 * @return the patientId
 	 */
