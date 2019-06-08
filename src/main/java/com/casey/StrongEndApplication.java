@@ -1,4 +1,4 @@
-package com.casey.kc;
+package com.casey;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

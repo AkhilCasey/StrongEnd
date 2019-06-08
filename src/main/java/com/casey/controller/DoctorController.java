@@ -9,4 +9,10 @@ public class DoctorController {
 
 	//all data doctor wants to be here..
 	
+	
+	
+	
+	
+	
+	
 }
