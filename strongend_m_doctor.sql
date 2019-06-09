@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `m_doctor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `m_doctor` (
-  `doctor_id` int(11) NOT NULL,
+  `doctor_id` int(11) NOT NULL AUTO_INCREMENT,
   `doctor_name` varchar(45) DEFAULT NULL,
   `doctor_current_address` varchar(200) DEFAULT NULL,
   `doctor_qualification` varchar(45) DEFAULT NULL,
