@@ -1,20 +1,49 @@
 package com.casey.bean;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * 
  * @author Akhil
  *
  */
+@Entity
+@Table(name = "m_doctor")
 public class DoctorDTO {
 //Doctor details all here
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "doctor_id")
 	private Integer doctorId;
+
+	@Column(name = "doctor_name")
 	private String doctorName;
+
+	@Column(name = "doctor_qualification")
 	private String doctorQualification; // eg MBBS,BAMS all separated with ","
+
+	@Column(name = "doctor_current_address")
 	private String doctorCurrentAddress;
+
+	@Column(name = "doctor_permenant_address")
 	private String doctorPermanentAddress;
+
+	@Column(name = "doctor_gender")
 	private String gender;
+
+	@Column(name = "doctor_contact")
 	private String contactNum;
+
+	@Column(name = "doctor_adhar_details")
 	private String adharCardDetails; // encrypt
+
+	@Column(name = "doctor_pan_details")
 	private String panCardDetails; // encrypt
 
 	/**

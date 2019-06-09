@@ -1,5 +1,9 @@
 package com.casey.service;
 
-public interface DoctorService {
+import java.util.List;
 
+import com.casey.bean.DoctorDTO;
+
+public interface DoctorService {
+	List<DoctorDTO> getAllDoctorData();
 }
