@@ -12,4 +12,6 @@ public interface DoctorRepo extends CrudRepository<DoctorDTO, Long> {
 
 	List<DoctorDTO> findAll();
 
+	List<DoctorDTO> findByDoctorId(Integer id);
+
 }

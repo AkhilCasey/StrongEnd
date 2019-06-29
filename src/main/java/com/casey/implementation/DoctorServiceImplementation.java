@@ -20,4 +20,9 @@ public class DoctorServiceImplementation implements DoctorService {
 		return data;
 	}
 
+	public List<DoctorDTO> getById(Integer id) {
+		List<DoctorDTO> data = doctorRepo.findByDoctorId(id);
+		return null;
+	}
+
 }
