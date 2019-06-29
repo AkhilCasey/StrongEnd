@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `m_doctor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `m_doctor` (
-  `doctor_id` int(11) NOT NULL,
+  `doctor_id` int(11) NOT NULL AUTO_INCREMENT,
   `doctor_name` varchar(45) DEFAULT NULL,
   `doctor_current_address` varchar(200) DEFAULT NULL,
   `doctor_qualification` varchar(45) DEFAULT NULL,
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-05 12:55:42
+-- Dump completed on 2019-06-08 17:44:09

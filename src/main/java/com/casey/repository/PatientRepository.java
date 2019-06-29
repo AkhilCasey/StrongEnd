@@ -5,13 +5,10 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.casey.bean.DoctorDTO;
+import com.casey.bean.PatientDTO;
 
 @Repository
-public interface DoctorRepo extends CrudRepository<DoctorDTO, Long> {
+public interface PatientRepository extends CrudRepository<PatientDTO, Long> {
 
-	List<DoctorDTO> findAll();
-
-	List<DoctorDTO> findByDoctorId(Integer id);
-
+	List<PatientDTO> findAll();
 }
